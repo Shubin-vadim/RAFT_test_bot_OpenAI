@@ -14,7 +14,7 @@ translator: Translator = Translator()
 async def process_start_command(message: Message):
     await message.answer('Привет!\nЯ бот на основе модели gpt-3.5-turbo\nНапиши мне что-нибудь')
 
-
+# Этот хэндлер будет срабатывать на любое сообщение пользователя, кроме "/start"
 @router.message()
 async def send_message(message: Message):
     config: Config = load_config('.env')
