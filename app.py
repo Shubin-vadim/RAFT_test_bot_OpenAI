@@ -1,15 +1,16 @@
 import logging
 import asyncio
+import openai
 
 from aiogram import Bot, Dispatcher
 from config import Config, load_config
 from handlers import user_handlers
 
-import openai
+
 logger = logging.getLogger(__name__)
 
 
-async def main():
+async def main() -> None:
     logging.basicConfig(
         level=logging.INFO,
         format='%(filename)s:%(lineno)d #%(levelname)-8s'

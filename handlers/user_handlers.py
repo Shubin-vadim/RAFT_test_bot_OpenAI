@@ -1,10 +1,11 @@
+import openai
+
 from aiogram import Router
 from aiogram.filters import Command
 from aiogram.types import Message
-import openai
-from config import Config, load_config
-from messanges import messages
 from googletrans import Translator
+
+from messages import messages
 
 router: Router = Router()
 translator: Translator = Translator()
@@ -12,15 +13,14 @@ translator: Translator = Translator()
 
 # Этот хэндлер будет срабатывать на команду "/start"
 @router.message(Command(commands=["start"]))
-async def process_start_command(message: Message):
+async def process_start_command(message: Message) -> None:
     await message.answer('Привет!\nЯ бот на основе модели gpt-3.5-turbo\nНапиши мне что-нибудь')
 
 
 # Этот хэндлер будет срабатывать на любое сообщение пользователя, кроме "/start"
 @router.message()
-async def send_message(message: Message):
-    config: Config = load_config('.env')
-    openai.api_key = config.openai_key.token
+async def send_message(message: Message) -> None:
+
     promt = translator.translate(message.text, src='ru', dest='en').text
 
     messages.append({
