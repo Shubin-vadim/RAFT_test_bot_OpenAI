@@ -1,4 +1,3 @@
-# RAFT_test_bot_OpenAI
 # Telegram bot using OpenAI API in RAFT
  
 1. [Descriprion bot](#description)
@@ -8,21 +7,17 @@
    
 # <a name="description">Desctiption project</a>
 
-This project is a telegram bot that transfers the image style. There is a picture of content at the input, and a stylized image at the output. [The Fast Neural Style algorithm](https://clck.ru/34sQ3q) was used for the development
-The idea is to train the network to transfer a certain style to many different images.
+This project is a telegram bot that conducts a dialogue with the user via [gpt-3.5 turbo from the Open AI API](https://platform.openai.com/docs/models/gpt-3-5). At the moment, only the basic version is implemented (the network issues a message immediately, and does not generate a token).
 
 List of available bot commands:
 - /start - Start of the bot
-- /help - list of available commands
-- /info - information about neural style transfer
-- /examples - examples of images created by this bot
-- /transfer_style - transferring the style of the original image
+- any message
 
 # <a name="install">Installation</a>
 
 ### Git clone
 ```
-git clone https://github.com/Shubin-vadim/Background-Segmentation.git
+git clone https://github.com/Shubin-vadim/RAFT_test_bot_OpenAI.git
 ```
 ### Installing dependencies
 
@@ -37,6 +32,6 @@ python app.py
 ```
 
 # <a name="examples">Examples</a>
-<img src="https://github.com/Shubin-vadim/DLSHool_tg_bot/blob/master/imgs/cat.jpg" width="400" alt="cat" />
-<img src="https://github.com/Shubin-vadim/DLSHool_tg_bot/blob/master/imgs/city.jpg" width="400" alt="city" />
-<img src="https://github.com/Shubin-vadim/DLSHool_tg_bot/blob/master/imgs/zebras.jpg" width="400" alt="zebras" />
+<img src="https://github.com/Shubin-vadim/RAFT_test_bot_OpenAI/blob/master/imgs/example1.jpg" width="400" alt="example1" />
+<img src="https://github.com/Shubin-vadim/RAFT_test_bot_OpenAI/blob/master/imgs/example2.jpg" width="400" alt="example2" />
+<img src="https://github.com/Shubin-vadim/RAFT_test_bot_OpenAI/blob/master/imgs/example3.jpg" width="400" alt="example3" />
