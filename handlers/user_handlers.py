@@ -3,12 +3,10 @@ import openai
 from aiogram import Router
 from aiogram.filters import Command
 from aiogram.types import Message
-from googletrans import Translator
 
 from messages import messages
 
 router: Router = Router()
-translator: Translator = Translator()
 
 
 # Этот хэндлер будет срабатывать на команду "/start"
@@ -21,10 +19,8 @@ async def process_start_command(message: Message) -> None:
 @router.message()
 async def send_message(message: Message) -> None:
 
-    promt = translator.translate(message.text, src='ru', dest='en').text
-
     messages.append({
-        "role": "user", "content": promt
+        "role": "user", "content": message.text
     })
 
     response = openai.ChatCompletion.create(
@@ -34,8 +30,9 @@ async def send_message(message: Message) -> None:
     )
 
     ans = response['choices'][0]['message']['content']
-    ans = translator.translate(ans, src='en', dest='ru').text
+
     messages.append({
         "role": "assistant", "content": ans
     })
+
     await message.answer(ans)
